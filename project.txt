@@ -1,0 +1,73 @@
+DROP TABLE customer;
+DROP TABLE plans;
+DROP TABLE membership;
+DROP TABLE staff;
+DROP TABLE equipment;
+
+CREATE TABLE customer (
+    "customer_id" NUMBER,
+    "name" VARCHAR2(100),
+    "address" VARCHAR2(255),
+    "age" NUMBER,
+    "phone_no" NUMBER
+);
+
+CREATE TABLE plans (
+	"name" VARCHAR2(10),
+	"rate" number
+);
+
+CREATE TABLE membership (
+	"customer" NUMBER,
+	"plan" VARCHAR2(10),
+	"Expiry" DATE
+);
+
+CREATE TABLE staff (
+	"staff_id" NUMBER,
+	"name" VARCHAR2(100),
+	"address" VARCHAR2(255),
+	"age" NUMBER,
+	"phone_no" NUMBER,
+	"salary" NUMBER
+	"role" VARCHAR2(25)
+);
+
+CREATE TABLE equipment(
+	"equipment_id" NUMBER;
+	"equipment_name" VARCHAR2(100);
+	"date_added" DATE,
+	"last_maintained" DATE,
+);
+
+INSERT into plans VALUES("silver", 750);
+INSERT into plans VALUES("gold" , 1000);
+INSERT into plans VALUES("platinum", 1500);
+INSERT into plans VALUES("diamond", 2000);
+
+COMMIT;
+
+DROP SEQUENCE customer_id_seq;
+DROP SEQUENCE staff_id_seq;
+DROP SEQUENCE equipment_id_seq;
+
+
+CREATE SEQUENCE customer_id_seq
+START WITH 1000
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+CREATE SEQUENCE staff_id_seq
+START WITH 1000
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+CREATE SEQUENCE equipment_id_seq
+START WITH 1000
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+
