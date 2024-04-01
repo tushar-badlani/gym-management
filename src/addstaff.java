@@ -36,7 +36,7 @@ public class addstaff
 		phoneinp = new JTextField();
 		salaryinp = new JTextField();
 
-		JLabel main = new JLabel("Add Customer");
+		JLabel main = new JLabel("Add Staff");
 		main.setBounds(207, 5, 250, 25);
 		main.setFont(new Font("Arial",Font.TRUETYPE_FONT,35));
 
@@ -122,12 +122,12 @@ public class addstaff
 		mainbox.add(ageinp);
 		mainbox.add(address);
 		mainbox.add(addressinp);
-		mainbox.add(plan);
-		mainbox.add(planinp);
+		mainbox.add(role);
+		mainbox.add(roleinp);
 		mainbox.add(phone);
 		mainbox.add(phoneinp);
-		mainbox.add(exp);
-		mainbox.add(expinp);
+		mainbox.add(sal);
+		mainbox.add(salaryinp);
 		mainbox.add(submit);
 
 		mainbox.setLayout(null);

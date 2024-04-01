@@ -67,7 +67,7 @@ public class addcustomer
 
 		
 		JButton submit = new JButton("Submit");
-		submit.setBounds(220, 400, 160,35);
+		submit.setBounds(220, 420, 160,35);
 		submit.addActionListener(new ActionListener() 
 		{
 			@Override
@@ -101,9 +101,6 @@ public class addcustomer
 						Class.forName("oracle.jdbc.driver.OracleDriver");
 						Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","system");
 						Statement stat=conn.createStatement();
-						//ResultSet res=stat.executeQuery("insert into customer values(customerno,'dname',dage,'daddress','7');");
-						//ResultSet res2 = stat.executeQuery("insert into membershipplan values('dplan',10,customerno);");
-						//stat.execute("insert into customer values(9,'vipul',20,'Nehru Place',7)");
 						customerno++;
 						System.out.println(customerno);
 						System.out.println("insert into customer values("+customerno+","+"'"+dname+"'"+","+ "'"+daddress+ "'"+","+
@@ -114,8 +111,7 @@ public class addcustomer
 						dexp = dexp * 30;
 						stat.execute("insert into membership values(" + "customer_id_seq.CURRVAL" + "," + "'" +
 								dplan + "'" + "," + "sysdate"+ "+"+ dexp + ")");
-						//stat.execute("commit");
-						//boolean res=stat.execute("insert into customer values("+customerno+","+"'"+dname+"'"+","+dage+","+"'"+daddress+"'"+","+trainerid+");\"");
+
 					} 
 					catch (Exception e) 
 					{

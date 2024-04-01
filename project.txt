@@ -29,21 +29,21 @@ CREATE TABLE staff (
 	"address" VARCHAR2(255),
 	"age" NUMBER,
 	"phone_no" NUMBER,
-	"salary" NUMBER
+	"salary" NUMBER,
 	"role" VARCHAR2(25)
 );
 
 CREATE TABLE equipment(
-	"equipment_id" NUMBER;
-	"equipment_name" VARCHAR2(100);
+	"equipment_id" NUMBER,
+	"equipment_name" VARCHAR2(100),
 	"date_added" DATE,
-	"last_maintained" DATE,
+	"last_maintained" DATE
 );
 
-INSERT into plans VALUES("silver", 750);
-INSERT into plans VALUES("gold" , 1000);
-INSERT into plans VALUES("platinum", 1500);
-INSERT into plans VALUES("diamond", 2000);
+INSERT into plans VALUES('silver', 750);
+INSERT into plans VALUES('gold' , 1000);
+INSERT into plans VALUES('platinum', 1500);
+INSERT into plans VALUES('diamond', 2000);
 
 COMMIT;
 
@@ -69,5 +69,7 @@ START WITH 1000
 INCREMENT BY 1
 NOCACHE
 NOCYCLE;
+
+
 
 

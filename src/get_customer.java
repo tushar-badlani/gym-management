@@ -40,7 +40,7 @@ public class get_customer
 	    JScrollPane scrollPane = new JScrollPane(table);
 	    table.setFillsViewportHeight(true);
 	 
-	    JLabel lblHeading = new JLabel("Display All Customer Info - (SIMPLE)");
+	    JLabel lblHeading = new JLabel("Display All Customer Info");
 	    lblHeading.setFont(new Font("Arial",Font.TRUETYPE_FONT,30));
 	    
 	    frame.getContentPane().setLayout(new BorderLayout());

@@ -4,37 +4,28 @@ import java.awt.*;
 import java.sql.*;
 
 
-public class get_staff
+public class get_plan
 {
 	public static void create()
 	{
 		JFrame frame = new JFrame();
-		String[] columns = {"Staff ID", "Name", "Address", "Age", "Phone Number", "Salary", "Role"};
-		Object[][] data = new Object[12][7];
+		String[] columns = {"Plan", "Price"};
+		Object[][] data = new Object[12][2];
 
 		try
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","system");
 			Statement stat=conn.createStatement();
-			ResultSet res=stat.executeQuery("select * from staff");
+			ResultSet res=stat.executeQuery("select * from plans order by rate asc");
 			int i = 0;
 			while( res.next() )
 			{
-				data[i][0] = res.getInt("staff_id");
-				data[i][1] = res.getString("name");
-				data[i][2] = res.getString("address");
-				data[i][3] = res.getInt("age");
-				data[i][4] = res.getInt("phone_no");
-				data[i][5] = res.getInt("salary");
-				data[i][6] = res.getString("role");
+				data[i][0] = res.getString("name");
+				data[i][1] = res.getInt("rate");
+
 
 				i++;
-				System.out.println(res.getInt("staff_id")+" "+
-						res.getString("name")+" "+
-						res.getString("address")+" "+res.getInt("age")+" " +
-						res.getInt("phone_no")+ " " + res.getInt("salary")+ " "
-						+ res.getString("role"));
 			}
 		}
 		catch (Exception e)
@@ -46,13 +37,13 @@ public class get_staff
 		JScrollPane scrollPane = new JScrollPane(table);
 		table.setFillsViewportHeight(true);
 
-		JLabel lblHeading = new JLabel("Display All Staff Info");
+		JLabel lblHeading = new JLabel("Display All Plans");
 		lblHeading.setFont(new Font("Arial",Font.TRUETYPE_FONT,30));
 
 		frame.getContentPane().setLayout(new BorderLayout());
 		frame.getContentPane().add(lblHeading,BorderLayout.PAGE_START);
 		frame.getContentPane().add(scrollPane,BorderLayout.CENTER);
-		frame.setSize(1000, 500);
+		frame.setSize(600, 300);
 		frame.setVisible(true);
 	}
 
