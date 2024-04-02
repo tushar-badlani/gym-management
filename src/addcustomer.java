@@ -89,7 +89,7 @@ public class addcustomer
 					dphone = Integer.parseInt(phoneinp.getText());
 					dexp = Integer.parseInt(expinp.getText());
 
-					JOptionPane.showMessageDialog(null, "Data Submitted");
+
 					nameinp.setText("");
 					ageinp.setText("");
 					addressinp.setText("");
@@ -112,9 +112,12 @@ public class addcustomer
 						stat.execute("insert into membership values(" + "customer_id_seq.CURRVAL" + "," + "'" +
 								dplan + "'" + "," + "sysdate"+ "+"+ dexp + ")");
 
+						JOptionPane.showMessageDialog(null, "Data Submitted");
+
 					} 
 					catch (Exception e) 
 					{
+						JOptionPane.showMessageDialog(null, "Failed");
 						e.printStackTrace();
 					}
 				}

@@ -29,8 +29,8 @@ public class homepage
 		JRadioButton op4 =new JRadioButton("Add Customer into Database ");
 		JRadioButton op5 =new JRadioButton("Add Plan into Database ");
 		JRadioButton op6 =new JRadioButton("Display All Plan Info ");
-//		JRadioButton op7 =new JRadioButton("Display Customer Names whose Trainer's Salary > 40000 - (COMPLEX) ");
-//		JRadioButton op8 =new JRadioButton("Display Brand Names with average prices of their equipment - (COMPLEX) ");
+		JRadioButton op7 =new JRadioButton("Add equipment ");
+		JRadioButton op8 =new JRadioButton("Display Brand Names with average prices of their equipment - (COMPLEX) ");
 //		JRadioButton op9 =new JRadioButton("Display Staff IDs with average age of their customers - (COMPLEX) ");
 //		JRadioButton op10 =new JRadioButton("Display Equipment Names whose Weights > 30 and Color = 'RED' - (SIMPLE) ");
 //		JRadioButton op11 =new JRadioButton("Display Customer IDs whose Membership Plan is 'Regular' with Duration Left(in months) - (SIMPLE) ");
@@ -45,8 +45,8 @@ public class homepage
 		op4.setBounds(25,140,600,30);
 		op5.setBounds(25,170,530,30);
 		op6.setBounds(25,200,550,30);
-//		op7.setBounds(25,230,550,30);
-//		op8.setBounds(25,260,550,30);
+		op7.setBounds(25,230,550,30);
+		op8.setBounds(25,260,550,30);
 //		op9.setBounds(25,290,530,30);
 //		op10.setBounds(25,320,570,30);
 //		op11.setBounds(25,350,610,30);
@@ -60,8 +60,8 @@ public class homepage
 		bg.add(op5);
 		bg.add(op2);bg.add(op4);
 		bg.add(op6);
-//		bg.add(op7);bg.add(op9);bg.add(op11);
-//		bg.add(op8);bg.add(op10);bg.add(op12);
+		bg.add(op7);//bg.add(op9);bg.add(op11);
+		bg.add(op8);//bg.add(op10);bg.add(op12);
 //		bg.add(op13);bg.add(op14);
 		//bg.add(op15);
 		
@@ -71,10 +71,10 @@ public class homepage
 		mainbox.add(banner);
 		mainbox.add(op1);mainbox.add(op3);mainbox.add(op5);
 		mainbox.add(op2);mainbox.add(op4);mainbox.add(op6);
-//		mainbox.add(op7);mainbox.add(op9);mainbox.add(op11);
-//		mainbox.add(op8);mainbox.add(op10);mainbox.add(op12);
+		mainbox.add(op7);//mainbox.add(op9);mainbox.add(op11);
+		mainbox.add(op8);//mainbox.add(op10);mainbox.add(op12);
 //		mainbox.add(op13);mainbox.add(op14);
-//		//mainbox.add(op15);
+//		mainbox.add(op15);
 		
 		mainbox.add(button);
 		mainbox.setLayout(null);
@@ -130,13 +130,14 @@ public class homepage
 	      	            }
 	      	            else if ( disy == 230 )
 	      	            {
-	      	            	query7 q7 = new query7();
-	      	            	q7.create();
+							  addequipment ad = new addequipment();
+							  ad.create();
+
 	      	            }
 	      	            else if ( disy == 260 )
 	      	            {
-	      	            	query8 q8 = new query8();
-	      	            	q8.create();
+	      	            	get_equipment ge = new get_equipment();
+							  	      	            	ge.create();
 	      	            }
 	      	            else if ( disy == 290 )
 	      	            {

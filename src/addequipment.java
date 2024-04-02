@@ -8,22 +8,21 @@ import java.sql.Statement;
 
 import javax.swing.*;
 
-public class addplan
+public class addequipment
 {
 	static JFrame mainbox;
 	static JTextField nameinp;
 
-	static JTextField priceinp;
 
 	static String dname = "";
-	static int dprice = 0;
+
 	public static void create()
 	{
 		mainbox = new JFrame();
 		mainbox.setSize(620,500);
 
 		nameinp = new JTextField();
-		priceinp = new JTextField();
+
 
 
 		JLabel main = new JLabel("Add Plan");
@@ -34,20 +33,16 @@ public class addplan
 		name.setBounds(120, 35, 400,20);
 		nameinp.setBounds(120, 55, 370,30);
 
-		JLabel price = new JLabel("Enter plan price");
-		price.setBounds(120, 100, 400,20);
-		priceinp.setBounds(120, 120 , 370,30);
-
 
 
 		JButton submit = new JButton("Submit");
-		submit.setBounds(220, 170, 160,35);
+		submit.setBounds(220, 100, 160,35);
 		submit.addActionListener(new ActionListener()
 		{
 			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
-				if( nameinp.getText().isEmpty() || priceinp.getText().isEmpty())
+				if( nameinp.getText().isEmpty() )
 
 				{
 					JOptionPane.showMessageDialog(null, "Data Missing");
@@ -55,11 +50,11 @@ public class addplan
 				else
 				{
 					dname = nameinp.getText();
-					dprice = Integer.parseInt(priceinp.getText());
+
 
 
 					nameinp.setText("");
-					priceinp.setText("");
+
 					try
 					{
 						Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -67,7 +62,9 @@ public class addplan
 						Statement stat=conn.createStatement();
 
 
-						stat.executeUpdate("insert into plans values('"+dname+"',"+dprice+")");
+						System.out.println("insert into equipment values(equipment_id_seq"+",'"+dname+"',"+"sysdate"+",sysdate"+")");
+
+						stat.executeUpdate("insert into equipment values(equipment_id_seq.NEXTVAL"+",'"+dname+"',"+"sysdate"+",sysdate"+")");
 						JOptionPane.showMessageDialog(null, "Data Submitted");
 					}
 					catch (Exception e)
@@ -82,7 +79,7 @@ public class addplan
 		mainbox.add(main);
 		mainbox.add(name);
 		mainbox.add(nameinp);
-		mainbox.add(priceinp);
+
 		mainbox.add(submit);
 
 		mainbox.setLayout(null);

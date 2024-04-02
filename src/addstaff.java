@@ -88,7 +88,7 @@ public class addstaff
 					dphone = Integer.parseInt(phoneinp.getText());
 					dsal = Integer.parseInt(salaryinp.getText());
 
-					JOptionPane.showMessageDialog(null, "Data Submitted");
+
 					nameinp.setText("");
 					ageinp.setText("");
 					addressinp.setText("");
@@ -105,11 +105,12 @@ public class addstaff
 						stat.execute("insert into staff values(" + "staff_id_seq.NEXTVAL" + "," + "'" +
 								dname + "'" + "," + "'" + daddress + "'" + "," + dage + "," + dphone + "," + dsal + "," + "'" + drole + "'" + ")");
 
-
+						JOptionPane.showMessageDialog(null, "Data Submitted");
 					}
 					catch (Exception e)
 					{
 						e.printStackTrace();
+						JOptionPane.showMessageDialog(null, "Failed");
 					}
 				}
 			}
