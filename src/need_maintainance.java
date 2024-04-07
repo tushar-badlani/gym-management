@@ -6,25 +6,27 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class query11
+public class need_maintainance
 {
 	public static void create()
 	{
 		JFrame frame = new JFrame();
-		String[] columns = {"Customer ID","Duration Left"};
-		Object[][] data = new Object[10][2];
+		String[] columns = {"Equipment ID","Equipment Name","Last Maintained"};
+		Object[][] data = new Object[10][3];
+		
 		try
 		{
-			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/finalbase","ashwat","passwordchahiye");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","system");
 			Statement stat=conn.createStatement();
-			ResultSet res=stat.executeQuery("select customer_id,duration_left from membershipPLan where mem_type='Regular';");
+			ResultSet res=stat.executeQuery("select * from equipment where (sysdate-last_maintained)>150");
 			int i = 0;
 			while(res.next()) 
 			{
-				data[i][0] = res.getInt("customer_id");
-				data[i][1] = res.getInt("duration_left");
-				System.out.println(res.getInt("customer_id")+" "+res.getInt("duration_left"));
-				i++;
+				data[i][0] = res.getInt("equipment_id");
+				data[i][1] = res.getString("equipment_name");
+				data[i][2] = res.getDate("last_maintained");
+				//System.out.println(res.getInt("staff_id")+" "+res.getDouble("avg(age)"));
 			}
 		} 
 		catch (Exception e) 
@@ -36,8 +38,8 @@ public class query11
 	    JScrollPane scrollPane = new JScrollPane(table);
 	    table.setFillsViewportHeight(true);
 	 
-	    JLabel lblHeading = new JLabel("Display Customer IDs whose Membership Plan is 'Regular' with Duration Left(in months) - (SIMPLE) ");
-	    lblHeading.setFont(new Font("Arial",Font.TRUETYPE_FONT,17));
+	    JLabel lblHeading = new JLabel("Display Equipments that need maintenance");
+	    lblHeading.setFont(new Font("Arial",Font.TRUETYPE_FONT,20));
 	    
 	    frame.getContentPane().setLayout(new BorderLayout());
 	    frame.getContentPane().add(lblHeading,BorderLayout.PAGE_START);

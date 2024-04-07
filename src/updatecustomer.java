@@ -5,20 +5,22 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.sql.ResultSet;
 
 import javax.swing.*;
 
-public class addcustomer
+public class updatecustomer
 {
 	static JFrame mainbox;
+	static JTextField idinp;
 	static JTextField nameinp;
 	static JTextField ageinp;
 	static JTextField addressinp;
 	static JTextField planinp;
 	static JTextField phoneinp;
 	static JTextField expinp;
-	
-	static int customerno = 100;
+
+	static int did = 0;
 	static String dname = "";
 	static int dage = 0;
 	static String daddress = "";
@@ -29,93 +31,88 @@ public class addcustomer
 	{
 		mainbox = new JFrame();
 		mainbox.setSize(620,500);
-		
+
+
+		idinp = new JTextField();
 		nameinp = new JTextField();
 		ageinp = new JTextField();
 		addressinp = new JTextField();
 		planinp = new JTextField();
 		phoneinp = new JTextField();
 		expinp = new JTextField();
-		
-		JLabel main = new JLabel("Add Customer");
+
+		JLabel main = new JLabel("Update Customer");
 		main.setBounds(207, 5, 250, 25);
 		main.setFont(new Font("Arial",Font.TRUETYPE_FONT,35));
-		
+
+		JLabel id = new JLabel("Enter Customer ID");
+		id.setBounds(120, 35, 400,20);
+		idinp.setBounds(120, 55, 370,30);
+
 		JLabel name = new JLabel("Enter Your Name");
-		name.setBounds(120, 35, 400,20);
-		nameinp.setBounds(120, 55, 370,30);
-		
-		JLabel age = new JLabel("Enter Your Age");
-		age.setBounds(120, 100, 400,20);
-		ageinp.setBounds(120, 120 , 370,30);
-		
+		name.setBounds(120, 100, 400,20);
+		nameinp.setBounds(120, 120, 370,30);
+
+
+
 		JLabel address = new JLabel("Enter Your Address");
 		address.setBounds(120, 165, 400,20);
 		addressinp.setBounds(120, 185 , 370,30);
-		
-		JLabel plan = new JLabel("Enter Your Plan ( Regular/VIP ) ");
-		plan.setBounds(120, 230, 400,20);
-		planinp.setBounds(120, 250 , 370,30);
+
+
 
 		JLabel phone = new JLabel("Enter Your Phone Number");
-		phone.setBounds(120, 295, 400,20);
-		phoneinp.setBounds(120, 315 , 370,30);
+		phone.setBounds(120, 230, 400,20);
+		phoneinp.setBounds(120, 250 , 370,30);
 
-		JLabel exp = new JLabel("Enter number of months of membership");
-		exp.setBounds(120, 350, 400,20);
-		expinp.setBounds(120, 370 , 370,30);
 
-		
+
+
 		JButton submit = new JButton("Submit");
 		submit.setBounds(240, 420, 160,35);
-		submit.addActionListener(new ActionListener() 
+		submit.addActionListener(new ActionListener()
 		{
 			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
-				if( nameinp.getText().isEmpty() || (ageinp.getText().isEmpty()) 
+				if( nameinp.getText().isEmpty()
 						|| (addressinp.getText().isEmpty()) ||
-						(planinp.getText().isEmpty()) || (phoneinp.getText().isEmpty()) ||
-						(expinp.getText().isEmpty()))
+						 (phoneinp.getText().isEmpty()) ||
+						(idinp.getText().isEmpty()))
 				{
-						JOptionPane.showMessageDialog(null, "Data Missing");
+					JOptionPane.showMessageDialog(null, "Data Missing");
 				}
 				else
 				{
 					dname = nameinp.getText();
-					dage = Integer.parseInt(ageinp.getText());
+					did = Integer.parseInt(idinp.getText());
 					daddress = addressinp.getText();
-					dplan = planinp.getText();
+
 					dphone = Integer.parseInt(phoneinp.getText());
-					dexp = Integer.parseInt(expinp.getText());
+
 
 
 					nameinp.setText("");
-					ageinp.setText("");
+					idinp.setText("");
 					addressinp.setText("");
-					planinp.setText("");
+
 					phoneinp.setText("");
-					expinp.setText("");
+
 					try
 					{
 						Class.forName("oracle.jdbc.driver.OracleDriver");
 						Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","system");
 						Statement stat=conn.createStatement();
-						customerno++;
-						System.out.println(customerno);
-						System.out.println("insert into customer values("+customerno+","+"'"+dname+"'"+","+ "'"+daddress+ "'"+","+
-								dage+","+dphone+");");
-						stat.execute("insert into customer values("+"customer_id_seq.NEXTVAL" + "," + "'" +
-								dname + "'" + "," + "'" + daddress + "'" + "," +
-								dage + "," + dphone + ")");
-						dexp = dexp * 30;
-						stat.execute("insert into membership values(" + "customer_id_seq.CURRVAL" + "," + "'" +
-								dplan + "'" + "," + "sysdate"+ "+"+ dexp + ")");
+
+
+						stat.execute("update customer set name = '" + dname + "', address = '" + daddress + "', phone_no = " + dphone + " where customer_id = " + did);
+
+
 
 						JOptionPane.showMessageDialog(null, "Data Submitted");
 
-					} 
-					catch (Exception e) 
+					}
+					catch (Exception e)
 					{
 						JOptionPane.showMessageDialog(null, "Failed");
 						e.printStackTrace();
@@ -123,22 +120,21 @@ public class addcustomer
 				}
 			}
 		});
-	
+
 		mainbox.add(main);
+		mainbox.add(id);
+		mainbox.add(idinp);
 		mainbox.add(name);
 		mainbox.add(nameinp);
-		mainbox.add(age);
-		mainbox.add(ageinp);
+
 		mainbox.add(address);
 		mainbox.add(addressinp);
-		mainbox.add(plan);
-		mainbox.add(planinp);
+
 		mainbox.add(phone);
 		mainbox.add(phoneinp);
-		mainbox.add(exp);
-		mainbox.add(expinp);
+
 		mainbox.add(submit);
-		
+
 		mainbox.setLayout(null);
 		mainbox.setVisible(true);
 	}

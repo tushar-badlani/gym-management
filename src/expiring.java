@@ -4,32 +4,34 @@ import java.awt.*;
 import java.sql.*;
 
 
-public class get_equipment
+public class expiring
 {
 	public static void create()
 	{
 		JFrame frame = new JFrame();
-		String[] columns = {"Equipment ID", "Name", "Date Purchased", "Last Maintained"};
-		Object[][] data = new Object[12][4];
+		String[] columns = {"Customer ID", "Name", "Phone Number"};
+		Object[][] data = new Object[12][3];
 
 		try
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","system");
 			Statement stat=conn.createStatement();
-			ResultSet res=stat.executeQuery("select * from equipment");
+			ResultSet res=stat.executeQuery("select * from customer where customer_id in (select customer_id from membership where expiry < sysdate)");
+
 			int i = 0;
 			while( res.next() )
 			{
-				data[i][0] = res.getInt("equipment_id");
-				data[i][1] = res.getString("equipment_name");
-				data[i][2] = res.getDate("date_added");
-				data[i][3] = res.getDate("last_maintained");
+				data[i][0] = res.getInt("customer_id");
+				data[i][1] = res.getString("name");
+				data[i][2] = res.getInt("phone_no");
 
 
 				i++;
-				//System.out.println(res.getInt("customer_id")+" "+res.getString("name")+" "+res.getString("address")+" "+res.getInt("age")+" " + res.getInt("phone_no"));
+				System.out.println(res.getInt("customer_id")+" "+res.getString("name")+" "+res.getString("address")+" "+res.getInt("age")+" " + res.getInt("phone_no"));
 			}
+
+
 		}
 		catch (Exception e)
 		{

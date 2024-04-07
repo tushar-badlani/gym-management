@@ -9,8 +9,8 @@ public class get_customer
 	public static void create()
 	{
 		JFrame frame = new JFrame();
-		String[] columns = {"Customer ID", "Name", "Address", "Age", "Phone Number"};
-		Object[][] data = new Object[12][5];
+		String[] columns = {"Customer ID", "Name", "Address", "Age", "Phone Number", "Plan", "Expiry Date"};
+		Object[][] data = new Object[12][7];
 		
 		try
 		{
@@ -18,6 +18,7 @@ public class get_customer
 			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","system");
 			Statement stat=conn.createStatement();
 			ResultSet res=stat.executeQuery("select * from customer");
+
 			int i = 0;
 			while( res.next() ) 
 			{
@@ -28,7 +29,17 @@ public class get_customer
 				data[i][4] = res.getInt("phone_no");
 
 				i++;
-				System.out.println(res.getInt("customer_id")+" "+res.getString("name")+" "+res.getString("address")+" "+res.getInt("age")+" " + res.getInt("phone_no"));
+				//System.out.println(res.getInt("customer_id")+" "+res.getString("name")+" "+res.getString("address")+" "+res.getInt("age")+" " + res.getInt("phone_no"));
+			}
+
+			res=stat.executeQuery("select * from membership order by customer");
+			i = 0;
+			while( res.next() )
+			{
+				data[i][5] = res.getString("plan");
+				data[i][6] = res.getDate("Expiry");
+				i++;
+				//System.out.println(res.getString("plan")+" "+res.getDate("expiry_date"));
 			}
 		} 
 		catch (Exception e) 

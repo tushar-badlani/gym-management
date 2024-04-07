@@ -5,39 +5,39 @@ DROP TABLE staff;
 DROP TABLE equipment;
 
 CREATE TABLE customer (
-    "customer_id" NUMBER,
-    "name" VARCHAR2(100),
-    "address" VARCHAR2(255),
-    "age" NUMBER,
-    "phone_no" NUMBER
+    customer_id NUMBER,
+    name VARCHAR2(100),
+    address VARCHAR2(255),
+    age NUMBER,
+    phone_no NUMBER
 );
 
 CREATE TABLE plans (
-	"name" VARCHAR2(10),
-	"rate" number
+	name VARCHAR2(10),
+	rate number
 );
 
 CREATE TABLE membership (
-	"customer" NUMBER,
-	"plan" VARCHAR2(10),
-	"Expiry" DATE
+	customer NUMBER,
+	plan VARCHAR2(10),
+	Expiry DATE
 );
 
 CREATE TABLE staff (
-	"staff_id" NUMBER,
-	"name" VARCHAR2(100),
-	"address" VARCHAR2(255),
-	"age" NUMBER,
-	"phone_no" NUMBER,
-	"salary" NUMBER,
-	"role" VARCHAR2(25)
+	staff_id NUMBER,
+	name VARCHAR2(100),
+	address VARCHAR2(255),
+	age NUMBER,
+	phone_no NUMBER,
+	salary NUMBER,
+	role VARCHAR2(25)
 );
 
 CREATE TABLE equipment(
-	"equipment_id" NUMBER,
-	"equipment_name" VARCHAR2(100),
-	"date_added" DATE,
-	"last_maintained" DATE
+	equipment_id NUMBER,
+	equipment_name VARCHAR2(100),
+	date_added DATE,
+	last_maintained DATE
 );
 
 INSERT into plans VALUES('silver', 750);

@@ -8,7 +8,7 @@ import java.util.Enumeration;
 import java.awt.event.KeyEvent;
 
 
-public class homepage 
+public class homepage
 {
 	static JFrame mainbox;
 	static ButtonGroup bg;
@@ -17,12 +17,12 @@ public class homepage
 	{
 		mainbox = new JFrame();
 		mainbox.setSize(760,600);
-		
+
 		JLabel banner = new JLabel("PCCOE GYM DATABASE MANAGEMENT SYSTEM");
-		banner.setFont(new Font("JokerMan",3,25));
+		banner.setFont(new Font("ARIAL",3,25));
 		banner.setVisible( true );
-		banner.setBounds(100,7,280,50);
-		
+		banner.setBounds(100,7,800,50);
+
 		JRadioButton op1 =new JRadioButton("Display All Customer Info ");
 		JRadioButton op2 =new JRadioButton("Add Staff into Database  ");
 		JRadioButton op3 =new JRadioButton("Display All Staff Info ");
@@ -30,16 +30,16 @@ public class homepage
 		JRadioButton op5 =new JRadioButton("Add Plan into Database ");
 		JRadioButton op6 =new JRadioButton("Display All Plan Info ");
 		JRadioButton op7 =new JRadioButton("Add equipment ");
-		JRadioButton op8 =new JRadioButton("Display Brand Names with average prices of their equipment - (COMPLEX) ");
-//		JRadioButton op9 =new JRadioButton("Display Staff IDs with average age of their customers - (COMPLEX) ");
-//		JRadioButton op10 =new JRadioButton("Display Equipment Names whose Weights > 30 and Color = 'RED' - (SIMPLE) ");
-//		JRadioButton op11 =new JRadioButton("Display Customer IDs whose Membership Plan is 'Regular' with Duration Left(in months) - (SIMPLE) ");
-//		JRadioButton op12 =new JRadioButton("Display Brand Names whose equipment's color = 'RED' and has total products > 3 - (COMPLEX) ");
+		JRadioButton op8 =new JRadioButton("Display All Equipment Info ");
+		JRadioButton op9 =new JRadioButton("Display Customers whose Membership Plan is Expiring in 1 month  ");
+		JRadioButton op10 =new JRadioButton("Display Equipments that need maintenance");
+		JRadioButton op11 =new JRadioButton("Update customer ");
+		JRadioButton op12 =new JRadioButton("Display Brand Names whose equipment's color = 'RED' and has total products > 3 - (COMPLEX) ");
 //		JRadioButton op13 =new JRadioButton("Add Customer into Database - (SIMPLE) ");
 //		JRadioButton op14 =new JRadioButton("Update Staff's Salary - (SIMPLE) ");
 //		//JRadioButton op15 =new JRadioButton(" - (COMPLEX) ");
-		
-		op1.setBounds(25,50,400,30);    
+
+		op1.setBounds(25,50,400,30);
 		op2.setBounds(25,80,400,30);
 		op3.setBounds(25,110,400,30);
 		op4.setBounds(25,140,600,30);
@@ -47,43 +47,45 @@ public class homepage
 		op6.setBounds(25,200,550,30);
 		op7.setBounds(25,230,550,30);
 		op8.setBounds(25,260,550,30);
-//		op9.setBounds(25,290,530,30);
-//		op10.setBounds(25,320,570,30);
-//		op11.setBounds(25,350,610,30);
-//		op12.setBounds(25,380,590,30);
+		op9.setBounds(25,290,530,30);
+		op10.setBounds(25,320,570,30);
+		op11.setBounds(25,350,610,30);
+		op12.setBounds(25,380,590,30);
 //		op13.setBounds(25,410,590,30);
 //		op14.setBounds(25,440,590,30);
 		//op15.setBounds(25,470,590,30);
-		
-		bg = new ButtonGroup();    
+
+		bg = new ButtonGroup();
 		bg.add(op1);bg.add(op3);
 		bg.add(op5);
 		bg.add(op2);bg.add(op4);
 		bg.add(op6);
-		bg.add(op7);//bg.add(op9);bg.add(op11);
-		bg.add(op8);//bg.add(op10);bg.add(op12);
+		bg.add(op7);bg.add(op9);bg.add(op11);
+		bg.add(op8);bg.add(op10);bg.add(op12);
 //		bg.add(op13);bg.add(op14);
 		//bg.add(op15);
-		
+
 		JButton button = new JButton("Select");
 		button.setBounds(75,500,200,30);
-		
+
 		mainbox.add(banner);
 		mainbox.add(op1);mainbox.add(op3);mainbox.add(op5);
 		mainbox.add(op2);mainbox.add(op4);mainbox.add(op6);
-		mainbox.add(op7);//mainbox.add(op9);mainbox.add(op11);
-		mainbox.add(op8);//mainbox.add(op10);mainbox.add(op12);
+		mainbox.add(op7);mainbox.add(op9);mainbox.add(op11);
+		mainbox.add(op8);
+		mainbox.add(op10);
+		mainbox.add(op12);
 //		mainbox.add(op13);mainbox.add(op14);
 //		mainbox.add(op15);
-		
+
 		mainbox.add(button);
 		mainbox.setLayout(null);
 		mainbox.setVisible(true);
-		
-	    button.addActionListener(new ActionListener() 
+
+	    button.addActionListener(new ActionListener()
 	    {
-	        @Override 
-	        public void actionPerformed(ActionEvent arg0) 
+	        @Override
+	        public void actionPerformed(ActionEvent arg0)
 	        {
 	          ButtonModel buttonModel = bg.getSelection();
 	          if (buttonModel == null) {
@@ -91,10 +93,10 @@ public class homepage
 	          }
 	          else
 	          {
-	        	for (Enumeration buttons = bg.getElements(); buttons.hasMoreElements();) 
+	        	for (Enumeration buttons = bg.getElements(); buttons.hasMoreElements();)
 	      		{
 	      	        AbstractButton button = (AbstractButton) buttons.nextElement();
-	      	        if (button.isSelected()) 
+	      	        if (button.isSelected())
 	      	        {
 	      	            System.out.println(button.getText());
 	      	            disy = button.getY();
@@ -141,23 +143,23 @@ public class homepage
 	      	            }
 	      	            else if ( disy == 290 )
 	      	            {
-	      	            	query9 q9 = new query9();
-	      	            	q9.create();
-	      	            }	
+	      	            	expiring e = new expiring();
+							  	      	            	e.create();
+	      	            }
 	      	            else if ( disy == 320 )
 	      	            {
-	      	            	query10 q10 = new query10();
-	      	            	q10.create();
+	      	            	need_maintainance nm = new need_maintainance();
+	      	            	nm.create();
 	      	            }
 	      	            else if ( disy == 350 )
 	      	            {
-	      	            	query11 q11 = new query11();
-	      	            	q11.create();
+	      	            	updatecustomer uc = new updatecustomer();
+							  	      	            	uc.create();
 	      	            }
 	      	            else if ( disy == 380 )
 	      	            {
-	      	            	query12 q12 = new query12();
-	      	            	q12.create();
+	      	            	updatemembership um = new updatemembership();
+							  	      	            	um.create();
 	      	            }
 	      	            else if ( disy == 410 )
 	      	            {
@@ -176,7 +178,7 @@ public class homepage
 	        }
 	    });
 	}
-			    
+
 	public static void main( String[] args )
 	{
 		create();
