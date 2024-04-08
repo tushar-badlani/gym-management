@@ -37,6 +37,13 @@ public class Login {
         JButton login = new JButton("Login");
         login.setBounds(120, 205, 370, 30);
 
+        JButton signup = new JButton("Sign Up");
+        signup.setBounds(120, 250, 370, 30);
+
+        JButton forgot = new JButton("Forgot Password");
+        forgot.setBounds(120, 295, 370, 30);
+
+
 
         frame.add(main);
         frame.add(user);
@@ -44,11 +51,13 @@ public class Login {
         frame.add(pass);
         frame.add(password);
         frame.add(login);
+        frame.add(signup);
+        frame.add(forgot);
 
         frame.setLayout(null);
         frame.setVisible(true);
 
-        login.addActionListener(e -> {
+        login.addActionListener(e-> {
             if( username.getText().isEmpty()
                     || (password.getText().isEmpty()) ){
                         JOptionPane.showMessageDialog(frame, "Please fill all fields");
@@ -79,13 +88,22 @@ public class Login {
                 }
             }
 
+        });
 
+        signup.addActionListener(e-> {
+            frame.dispose();
+            SignUp.create();
+        });
+
+        forgot.addActionListener(e-> {
+            frame.dispose();
+            ForgotPassword.create();
         });
 
 
     }
 
-    public static void main(String[] args){
-        create();
-    }
+   public static void main(String[] args) {
+            create();
+        }
 }

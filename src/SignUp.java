@@ -27,7 +27,7 @@ public class SignUp {
 
     public static void create(){
         frame = new JFrame();
-        frame.setSize(620,600);
+        frame.setSize(620,650);
 
         JLabel main = new JLabel("Sign Up");
         main.setBounds(207, 5, 250, 40);
@@ -64,13 +64,16 @@ public class SignUp {
         name = new JTextField();
         name.setBounds(120, 400, 370,30);
 
+        JLabel question = new JLabel("Which school did you attend?");
+        question.setBounds(120, 445, 400,20);
+
         JLabel ans = new JLabel("Enter Security Answer");
-        ans.setBounds(120, 445, 400,20);
+        ans.setBounds(120, 490, 400,20);
         answer = new JTextField();
-        answer.setBounds(120, 465, 370,30);
+        answer.setBounds(120, 510, 370,30);
 
         JButton signup = new JButton("Sign Up");
-        signup.setBounds(120, 510, 370, 30);
+        signup.setBounds(120, 555, 370, 30);
 
         frame.add(main);
         frame.add(user);
@@ -85,6 +88,7 @@ public class SignUp {
         frame.add(address);
         frame.add(nm);
         frame.add(name);
+        frame.add(question);
 
         frame.add(ans);
         frame.add(answer);
@@ -149,7 +153,5 @@ public class SignUp {
         });
     }
 
-    public static void main(String[] args){
-        create();
-    }
+
 }
