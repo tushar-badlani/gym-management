@@ -1,44 +1,58 @@
 DROP TABLE customer;
-DROP TABLE plans;
 DROP TABLE membership;
+DROP TABLE plans;
+
 DROP TABLE staff;
 DROP TABLE equipment;
+DROP TABLE admins;
 
 CREATE TABLE customer (
-    customer_id NUMBER,
+    customer_id NUMBER PRIMARY KEY,
     name VARCHAR2(100),
     address VARCHAR2(255),
     age NUMBER,
-    phone_no NUMBER
+    phone_no NUMBER UNIQUE
 );
 
 CREATE TABLE plans (
-	name VARCHAR2(10),
+	name VARCHAR2(10) PRIMARY KEY,
 	rate number
 );
 
 CREATE TABLE membership (
-	customer NUMBER,
-	plan VARCHAR2(10),
+	customer NUMBER PRIMARY KEY,
+	plan VARCHAR2(10) REFERENCES plans(name) ON DELETE CASCADE,
 	Expiry DATE
 );
 
 CREATE TABLE staff (
-	staff_id NUMBER,
+	staff_id NUMBER PRIMARY KEY,
 	name VARCHAR2(100),
 	address VARCHAR2(255),
 	age NUMBER,
-	phone_no NUMBER,
+	phone_no NUMBER UNIQUE,
 	salary NUMBER,
 	role VARCHAR2(25)
 );
 
 CREATE TABLE equipment(
-	equipment_id NUMBER,
+	equipment_id NUMBER PRIMARY KEY,
 	equipment_name VARCHAR2(100),
 	date_added DATE,
 	last_maintained DATE
 );
+
+CREATE TABLE admins(
+    admin_id NUMBER PRIMARY KEY,
+    username VARCHAR2(100) UNIQUE,
+    password VARCHAR2(100),
+    email VARCHAR2(100),
+    phone_no NUMBER,
+    address VARCHAR2(255),
+    name VARCHAR2(100),
+    answer VARCHAR2(100)
+);
+
 
 INSERT into plans VALUES('silver', 750);
 INSERT into plans VALUES('gold' , 1000);
@@ -50,6 +64,7 @@ COMMIT;
 DROP SEQUENCE customer_id_seq;
 DROP SEQUENCE staff_id_seq;
 DROP SEQUENCE equipment_id_seq;
+DROP SEQUENCE admin_id_seq;
 
 
 CREATE SEQUENCE customer_id_seq
@@ -65,6 +80,12 @@ NOCACHE
 NOCYCLE;
 
 CREATE SEQUENCE equipment_id_seq
+START WITH 1000
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+CREATE SEQUENCE admin_id_seq
 START WITH 1000
 INCREMENT BY 1
 NOCACHE

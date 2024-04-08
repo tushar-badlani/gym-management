@@ -67,7 +67,7 @@ public class updatemembership
 			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
-				if( nameinp.getText().isEmpty()
+				if( idinp.getText().isEmpty()
 						|| (planinp.getText().isEmpty()) ||
 						(expinp.getText().isEmpty()))
 				{
@@ -92,11 +92,18 @@ public class updatemembership
 						Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","system");
 						Statement stat=conn.createStatement();
 
-						ResultSet res = stat.executeQuery("select plan from membership where id = " + did);
+						ResultSet res = stat.executeQuery("select plan from membership where customer = " + did);
+						res.next();
 						String cplan = res.getString("plan");
+
 						if(dplan==cplan){
 							Integer expf = 30*dexp;
-							stat.executeUpdate("update membership set plan = '"+dplan+"', exp = exp+"+expf+" where id = "+did);
+							stat.executeUpdate("update membership set plan = '"+dplan+"', expiry = expiry+"+expf+" where customer = "+did);
+
+						}
+						else{
+							Integer expf = 30*dexp;
+							stat.executeUpdate("update membership set plan = '"+dplan+"', expiry = sysdate+"+expf+" where customer = "+did);
 
 						}
 						//stat.executeUpdate("update membership set plan = '"+dplan+"', exp = "+dexp+" where id = "+did);

@@ -34,7 +34,7 @@ public class homepage
 		JRadioButton op9 =new JRadioButton("Display Customers whose Membership Plan is Expiring in 1 month  ");
 		JRadioButton op10 =new JRadioButton("Display Equipments that need maintenance");
 		JRadioButton op11 =new JRadioButton("Update customer ");
-		JRadioButton op12 =new JRadioButton("Display Brand Names whose equipment's color = 'RED' and has total products > 3 - (COMPLEX) ");
+		JRadioButton op12 =new JRadioButton("Update Membership ");
 //		JRadioButton op13 =new JRadioButton("Add Customer into Database - (SIMPLE) ");
 //		JRadioButton op14 =new JRadioButton("Update Staff's Salary - (SIMPLE) ");
 //		//JRadioButton op15 =new JRadioButton(" - (COMPLEX) ");
