@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 import javax.swing.*;
 
-public class addequipment
+public class AddEquipment
 {
 	static JFrame mainbox;
 	static JTextField nameinp;

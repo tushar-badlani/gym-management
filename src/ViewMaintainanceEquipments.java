@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class need_maintainance
+public class ViewMaintainanceEquipments
 {
 	public static void create()
 	{

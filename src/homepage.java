@@ -3,9 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.util.Enumeration;
-import java.awt.event.KeyEvent;
 
 
 public class homepage
@@ -102,68 +100,68 @@ public class homepage
 	      	            disy = button.getY();
 	      	            if ( disy == 50 )
 	      	            {
-	      	            	get_customer gc = new get_customer();
+	      	            	ViewAllCustomer gc = new ViewAllCustomer();
 							  gc.create();
 	      	            }
 	      	            else if ( disy == 80 )
 	      	            {
-	      	            	addstaff as = new addstaff();
+	      	            	AddStaff as = new AddStaff();
 	      	            	as.create();
 	      	            }
 	      	            else if ( disy == 110 )
 	      	            {
-	      	            	get_staff gs = new get_staff();
+	      	            	ViewAllStaff gs = new ViewAllStaff();
 							  gs.create();
 	      	            }
 	      	            else if ( disy == 140 )
 	      	            {
-							addcustomer ac = new addcustomer();
+							AddCustomer ac = new AddCustomer();
 							ac.create();
 	      	            }
 	      	            else if ( disy == 170 )
 	      	            {
-	      	            	addplan ap = new addplan();
+	      	            	AddPlan ap = new AddPlan();
 	      	            	ap.create();
 	      	            }
 	      	            else if ( disy == 200 )
 	      	            {
-	      	            	get_plan gp = new get_plan();
+	      	            	ViewAllPlans gp = new ViewAllPlans();
 							  gp.create();
 	      	            }
 	      	            else if ( disy == 230 )
 	      	            {
-							  addequipment ad = new addequipment();
+							  AddEquipment ad = new AddEquipment();
 							  ad.create();
 
 	      	            }
 	      	            else if ( disy == 260 )
 	      	            {
-	      	            	get_equipment ge = new get_equipment();
+	      	            	ViewAllEquipment ge = new ViewAllEquipment();
 							  	      	            	ge.create();
 	      	            }
 	      	            else if ( disy == 290 )
 	      	            {
-	      	            	expiring e = new expiring();
+	      	            	ViewExpiring e = new ViewExpiring();
 							  	      	            	e.create();
 	      	            }
 	      	            else if ( disy == 320 )
 	      	            {
-	      	            	need_maintainance nm = new need_maintainance();
+	      	            	ViewMaintainanceEquipments nm = new ViewMaintainanceEquipments();
 	      	            	nm.create();
 	      	            }
 	      	            else if ( disy == 350 )
 	      	            {
-	      	            	updatecustomer uc = new updatecustomer();
+	      	            	UpdateCustomer uc = new UpdateCustomer();
 							  	      	            	uc.create();
 	      	            }
 	      	            else if ( disy == 380 )
 	      	            {
-	      	            	updatemembership um = new updatemembership();
+	      	            	UpdateMembership um = new UpdateMembership();
 							  	      	            	um.create();
 	      	            }
 	      	            else if ( disy == 410 )
 	      	            {
-	      	            	addcustomer ac = new addcustomer();
+	      	            	AddCustomer ac = new AddCustomer();
 	      	            	ac.create();
 	      	            }
 	      	            else if ( disy == 440 )

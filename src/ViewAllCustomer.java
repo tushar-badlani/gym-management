@@ -4,7 +4,7 @@ import java.awt.*;
 import java.sql.*;
 
 
-public class get_customer
+public class ViewAllCustomer
 {
 	public static void create()
 	{

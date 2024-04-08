@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 import javax.swing.*;
 
-public class updatemembership
+public class UpdateMembership
 {
 	static JFrame mainbox;
 	static JTextField idinp;

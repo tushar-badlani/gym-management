@@ -77,7 +77,7 @@ public class Login {
                     if(rs.next()){
                         JOptionPane.showMessageDialog(frame, "Login Successful");
                         frame.dispose();
-                        homepage.create();
+                        Home.create();
                     }
                     else{
                         JOptionPane.showMessageDialog(frame, "Login Failed");

@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 import javax.swing.*;
 
-public class addplan
+public class AddPlan
 {
 	static JFrame mainbox;
 	static JTextField nameinp;
