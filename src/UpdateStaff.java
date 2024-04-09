@@ -29,7 +29,7 @@ public class UpdateStaff {
 
 
         JLabel main = new JLabel("Update Staff");
-        main.setBounds(207, 5, 250, 25);
+        main.setBounds(207, 5, 250, 40);
 
         JLabel id = new JLabel("Enter Staff ID");
         idinp = new JTextField();

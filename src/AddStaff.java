@@ -37,7 +37,7 @@ public class AddStaff
 		salaryinp = new JTextField();
 
 		JLabel main = new JLabel("Add Staff");
-		main.setBounds(207, 5, 250, 25);
+		main.setBounds(207, 5, 250, 40);
 		main.setFont(new Font("Arial",Font.TRUETYPE_FONT,35));
 
 		JLabel name = new JLabel("Enter Your Name");

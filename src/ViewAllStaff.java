@@ -45,9 +45,13 @@ public class ViewAllStaff
 		JTable table = new JTable(data, columns);
 		JScrollPane scrollPane = new JScrollPane(table);
 		table.setFillsViewportHeight(true);
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		table.setBounds(30, 75, 200, 300);
 
 		JLabel lblHeading = new JLabel("Display All Staff Info");
 		lblHeading.setFont(new Font("Arial",Font.TRUETYPE_FONT,30));
+		lblHeading.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHeading.setBounds(207, 5, 250, 40);
 
 		frame.getContentPane().setLayout(new BorderLayout());
 		frame.getContentPane().add(lblHeading,BorderLayout.PAGE_START);

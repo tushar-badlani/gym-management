@@ -48,26 +48,31 @@ public class Staff {
         mainbox.setVisible(true);
 
         add.addActionListener(e-> {
+            //mainbox.dispose();
             AddStaff as = new AddStaff();
             as.create();
         });
 
         view.addActionListener(e-> {
+            //mainbox.dispose();
             ViewAllStaff vs = new ViewAllStaff();
             vs.create();
         });
 
         update.addActionListener(e-> {
+            //mainbox.dispose();
             UpdateStaff us = new UpdateStaff();
             us.create();
         });
 
         delete.addActionListener(e-> {
+            //mainbox.dispose();
             DeleteStaff ds = new DeleteStaff();
             ds.create();
         });
 
         salary.addActionListener(e-> {
+            //mainbox.dispose();
             UpdateSalary us = new UpdateSalary();
             us.create();
         });

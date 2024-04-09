@@ -41,7 +41,7 @@ public class UpdateCustomer
 		expinp = new JTextField();
 
 		JLabel main = new JLabel("Update Customer");
-		main.setBounds(207, 5, 250, 25);
+		main.setBounds(207, 5, 250, 40);
 		main.setFont(new Font("Arial",Font.TRUETYPE_FONT,35));
 
 		JLabel id = new JLabel("Enter Customer ID");

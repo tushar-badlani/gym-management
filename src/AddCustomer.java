@@ -28,7 +28,7 @@ public class AddCustomer
 	public static void create()
 	{
 		mainbox = new JFrame();
-		mainbox.setSize(620,500);
+		mainbox.setSize(620,600);
 		
 		nameinp = new JTextField();
 		ageinp = new JTextField();
@@ -38,36 +38,36 @@ public class AddCustomer
 		expinp = new JTextField();
 		
 		JLabel main = new JLabel("Add Customer");
-		main.setBounds(207, 5, 250, 25);
+		main.setBounds(207, 5, 250, 40);
 		main.setFont(new Font("Arial",Font.TRUETYPE_FONT,35));
 		
 		JLabel name = new JLabel("Enter Your Name");
-		name.setBounds(120, 35, 400,20);
-		nameinp.setBounds(120, 55, 370,30);
+		name.setBounds(120, 55, 400,20);
+		nameinp.setBounds(120, 75, 370,30);
 		
 		JLabel age = new JLabel("Enter Your Age");
-		age.setBounds(120, 100, 400,20);
-		ageinp.setBounds(120, 120 , 370,30);
+		age.setBounds(120, 120, 400,20);
+		ageinp.setBounds(120, 140 , 370,30);
 		
 		JLabel address = new JLabel("Enter Your Address");
-		address.setBounds(120, 165, 400,20);
-		addressinp.setBounds(120, 185 , 370,30);
+		address.setBounds(120, 185, 400,20);
+		addressinp.setBounds(120, 205 , 370,30);
 		
 		JLabel plan = new JLabel("Enter Your Plan ( Regular/VIP ) ");
-		plan.setBounds(120, 230, 400,20);
-		planinp.setBounds(120, 250 , 370,30);
+		plan.setBounds(120, 250, 400,20);
+		planinp.setBounds(120, 270 , 370,30);
 
 		JLabel phone = new JLabel("Enter Your Phone Number");
-		phone.setBounds(120, 295, 400,20);
-		phoneinp.setBounds(120, 315 , 370,30);
+		phone.setBounds(120, 315, 400,20);
+		phoneinp.setBounds(120, 335 , 370,30);
 
 		JLabel exp = new JLabel("Enter number of months of membership");
-		exp.setBounds(120, 350, 400,20);
-		expinp.setBounds(120, 370 , 370,30);
+		exp.setBounds(120, 380, 400,20);
+		expinp.setBounds(120, 400 , 370,30);
 
 		
 		JButton submit = new JButton("Submit");
-		submit.setBounds(240, 420, 160,35);
+		submit.setBounds(240, 450, 160,35);
 		submit.addActionListener(new ActionListener() 
 		{
 			@Override
@@ -123,6 +123,19 @@ public class AddCustomer
 				}
 			}
 		});
+
+		JButton back = new JButton("Back");
+		back.setBounds(10, 10, 80, 30);
+		back.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent arg0)
+			{
+				mainbox.dispose();
+				Customer c= new Customer();
+				c.create();
+			}
+		});
 	
 		mainbox.add(main);
 		mainbox.add(name);
@@ -138,6 +151,7 @@ public class AddCustomer
 		mainbox.add(exp);
 		mainbox.add(expinp);
 		mainbox.add(submit);
+		//mainbox.add(back);
 		
 		mainbox.setLayout(null);
 		mainbox.setVisible(true);

@@ -16,6 +16,8 @@ public class UpdatePlan {
         frame = new JFrame();
         frame.setSize(620,500);
 
+
+
         JLabel name = new JLabel("Enter Plan Name");
         name.setBounds(120, 35, 400,20);
         nameinp.setBounds(120, 55, 370,30);

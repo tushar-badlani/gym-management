@@ -27,7 +27,7 @@ public class AddPlan
 
 
 		JLabel main = new JLabel("Add Plan");
-		main.setBounds(207, 5, 250, 25);
+		main.setBounds(207, 5, 250, 40);
 		main.setFont(new Font("Arial",Font.TRUETYPE_FONT,35));
 
 		JLabel name = new JLabel("Enter plan Name");
@@ -82,6 +82,7 @@ public class AddPlan
 		mainbox.add(main);
 		mainbox.add(name);
 		mainbox.add(nameinp);
+		mainbox.add(price);
 		mainbox.add(priceinp);
 		mainbox.add(submit);
 

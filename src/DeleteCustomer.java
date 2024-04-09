@@ -51,8 +51,7 @@ public class DeleteCustomer {
                     java.sql.ResultSet rs = stat.executeQuery(query);
                     if(rs.next()){
                         JOptionPane.showMessageDialog(frame, "Customer Deleted Successfully");
-                        frame.dispose();
-                        homepage.create();
+
                     }
                     else{
                         JOptionPane.showMessageDialog(frame, "Customer not found");

@@ -24,7 +24,7 @@ public class UpdateSalary {
         salaryinp = new JTextField();
 
         JLabel main = new JLabel("Update Salary");
-        main.setBounds(207, 5, 250, 25);
+        main.setBounds(207, 5, 250, 40);
         main.setFont(new Font("Arial",Font.TRUETYPE_FONT,35));
 
         JLabel id = new JLabel("Enter Staff ID");

@@ -58,35 +58,43 @@ public class Customer {
         frame.setVisible(true);
 
         add.addActionListener(e-> {
+            //frame.dispose();
             AddCustomer ac = new AddCustomer();
             ac.create();
         });
 
         view.addActionListener(e-> {
+            //frame.dispose();
             ViewAllCustomer vc = new ViewAllCustomer();
             vc.create();
         });
 
         update.addActionListener(e-> {
+            //frame.dispose();
             UpdateCustomer uc = new UpdateCustomer();
             uc.create();
         });
 
         delete.addActionListener(e-> {
+            //frame.dispose();
             DeleteCustomer dc = new DeleteCustomer();
             dc.create();
         });
 
         membership.addActionListener(e-> {
+            //frame.dispose();
             UpdateMembership um = new UpdateMembership();
             um.create();
         });
 
         back.addActionListener(e-> {
             frame.dispose();
+            Home h = new Home();
+            h.create();
         });
 
         expiring.addActionListener(e-> {
+            //frame.dispose();
             ViewExpiring ve = new ViewExpiring();
             ve.create();
         });

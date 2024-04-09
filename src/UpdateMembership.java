@@ -42,7 +42,7 @@ public class UpdateMembership
 		expinp = new JTextField();
 
 		JLabel main = new JLabel("Update Membership");
-		main.setBounds(207, 5, 250, 25);
+		main.setBounds(207, 5, 250, 40);
 		main.setFont(new Font("Arial",Font.TRUETYPE_FONT,35));
 
 		JLabel id = new JLabel("Enter Customer ID");

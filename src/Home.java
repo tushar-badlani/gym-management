@@ -10,6 +10,8 @@ public class Home {
     static JButton plan;
     static JButton equipment;
 
+    static JButton logout;
+
 
 
     public static void create(){
@@ -34,24 +36,38 @@ public class Home {
         equipment = new JButton("Equipment");
         equipment.setBounds(120, 190, 370, 30);
 
+        logout = new JButton("Logout");
+        logout.setBounds(120, 235, 370, 30);
+
+
         customer.addActionListener(e-> {
+            frame.dispose();
             Customer c = new Customer();
             c.create();
         });
 
         staff.addActionListener(e-> {
+            frame.dispose();
             Staff s = new Staff();
             s.create();
         });
 
         plan.addActionListener(e-> {
+            frame.dispose();
             Plan p = new Plan();
             p.create();
         });
 
         equipment.addActionListener(e-> {
-//            Equipment eq = new Equipment();
-//            eq.create();
+                frame.dispose();
+                Equipment eq = new Equipment();
+                eq.create();
+        });
+
+        logout.addActionListener(e-> {
+            frame.dispose();
+            Login l = new Login();
+            l.create();
         });
 
         frame.add(main);
@@ -59,6 +75,7 @@ public class Home {
         frame.add(staff);
         frame.add(plan);
         frame.add(equipment);
+        frame.add(logout);
 
         frame.setLayout(null);
         frame.setVisible(true);
