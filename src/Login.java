@@ -18,6 +18,7 @@ public class Login {
     public static void create(){
         frame = new JFrame();
         frame.setSize(620,500);
+        frame.setLocationRelativeTo(null);
 
         JLabel main = new JLabel("Login");
         main.setBounds(207, 5, 250, 40);

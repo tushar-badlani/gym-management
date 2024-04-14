@@ -44,7 +44,7 @@ public class ViewExpiring
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.setBounds(30, 75, 200, 300);
 
-		JLabel lblHeading = new JLabel("Display All Customer Info");
+		JLabel lblHeading = new JLabel("Display Expiring Customer Info");
 		lblHeading.setFont(new Font("Arial",Font.TRUETYPE_FONT,30));
 		lblHeading.setHorizontalAlignment(SwingConstants.CENTER);
 		lblHeading.setBounds(207, 5, 250, 40);

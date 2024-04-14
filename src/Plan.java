@@ -60,7 +60,7 @@ public class Plan {
         });
 
         back.addActionListener(e-> {
-            //mainbox.dispose();
+            mainbox.dispose();
             Home h = new Home();
             h.create();
         });

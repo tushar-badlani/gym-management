@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -20,6 +21,7 @@ public class DeleteEquipment {
 
         JLabel main = new JLabel("Delete Equipment");
         main.setBounds(207, 5, 250, 40);
+        main.setFont(new Font("Arial",Font.TRUETYPE_FONT,35));
 
         JLabel id = new JLabel("Enter ID of Equipment to Delete");
         id.setBounds(120, 55, 400,20);
@@ -34,6 +36,7 @@ public class DeleteEquipment {
 
         mainbox.add(main);
         mainbox.add(id);
+        mainbox.add(idinp);
         mainbox.add(delete);
         mainbox.add(back);
 

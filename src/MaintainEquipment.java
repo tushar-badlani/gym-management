@@ -35,6 +35,7 @@ public class MaintainEquipment {
 
         mainbox.add(main);
         mainbox.add(id);
+        mainbox.add(idinp);
         mainbox.add(maintain);
         mainbox.add(back);
 

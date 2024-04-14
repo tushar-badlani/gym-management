@@ -25,11 +25,11 @@ public class AddEquipment
 
 
 
-		JLabel main = new JLabel("Add Plan");
+		JLabel main = new JLabel("Add Equipment");
 		main.setBounds(207, 5, 250, 40);
 		main.setFont(new Font("Arial",Font.TRUETYPE_FONT,35));
 
-		JLabel name = new JLabel("Enter plan Name");
+		JLabel name = new JLabel("Enter Equipment Name");
 		name.setBounds(120, 35, 400,20);
 		nameinp.setBounds(120, 55, 370,30);
 
